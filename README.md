@@ -1,5 +1,5 @@
 Enunciado/s: 
-1. Utilizar la plantilla de parcial subida en: https://onlinegdb.com/5u2Tbhqth
+1.Utilizar la plantilla de parcial subida en: https://onlinegdb.com/5u2Tbhqth
 2.(3pts) Agregar los estilos correspondientes utilizando CSS y media queries (NO bootstrap): 
   a. La sección main se comporte como una grilla de dos filas y dos columnas. La sección header debe ocupar la primera fila. La sección nav debe ocupar la primer columna de la segunda fila. La sección con id=principal debe ocupar la segunda columna de la segunda fila. 
   b. La div con id=series debe mostrar a sus elementos hijos en filas de cuatro columnas. Cuando la pantalla mida menos de 900 pixeles, deben ser dos columnas. Cuando la pantalla mida menos de 550 pixeles, debe ser una sola columna. 
