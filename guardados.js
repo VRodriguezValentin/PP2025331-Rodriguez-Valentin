@@ -23,5 +23,5 @@ function cargarSeriesGuardadas() {
     });
 }
 
-// Cargar las series guardadas al cargar la página
+// Carga las series guardadas
 cargarSeriesGuardadas();

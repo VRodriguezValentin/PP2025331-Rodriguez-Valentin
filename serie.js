@@ -52,8 +52,6 @@ class Serie {
         const img = document.createElement('img');
         img.src = this.image;
         img.alt = `${this.name} image`;
-        img.style.width = '100px';
-        img.style.cursor = 'pointer';
         img.addEventListener('click', () => {
             window.open(this.url, '_blank');
         });
@@ -62,6 +60,7 @@ class Serie {
         const guardarTd = document.createElement('td');
         const botonGuardar = document.createElement('button');
         botonGuardar.textContent = 'Guardar';
+        botonGuardar.classList.add('btn', 'boton');
         botonGuardar.addEventListener('click', () => {
             Serie.guardarSerie(this);
         });
