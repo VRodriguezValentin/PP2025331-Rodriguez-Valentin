@@ -77,9 +77,12 @@ class Serie {
 
     static guardarSerie(serie) {
         const seriesGuardadas = JSON.parse(localStorage.getItem('seriesGuardadas')) || [];
+
         seriesGuardadas.push(serie);
         localStorage.setItem('seriesGuardadas', JSON.stringify(seriesGuardadas));
+
         console.log(seriesGuardadas);
+        
         alert(`La serie "${serie.name}" ha sido guardada.`);
     }
 }
