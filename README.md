@@ -1,40 +1,123 @@
-Enunciado/s: 
-1.Utilizar la plantilla de parcial subida en: https://onlinegdb.com/5u2Tbhqth
+# 🎬 Proyecto Web - Visualización y Gestión de Series
 
-2.(3pts) Agregar los estilos correspondientes utilizando CSS y media queries (NO bootstrap): 
-  a. La sección main se comporte como una grilla de dos filas y dos columnas. La sección header debe ocupar la primera fila. La sección nav debe ocupar la primer columna de la segunda fila. La sección con id=principal debe ocupar la segunda columna de la segunda fila. 
-  b. La div con id=series debe mostrar a sus elementos hijos en filas de cuatro columnas. Cuando la pantalla mida menos de 900 pixeles, deben ser dos columnas. Cuando la pantalla mida menos de 550 pixeles, debe ser una sola columna. 
-  
-3.(3pts) Crear en el archivo serie.js la clase Serie con: 
-  a. Atributos: id (number), url (string), name (string), language (string), generes (array de string), image (string). 
-  b. Constructor. Debe tomar y asignar todos los datos. 
-  c. Métodos: 
-    i. toJsonString(). De instancia. Devuelve un string json que representa al objeto. 
-    ii. createFromJsonString(json) De clase. Devuelve una instancia de la clase serie creada con los datos provenientes del parámetro json de tipo string. 
-    iii. createHtmlElement(). De instancia. Devuelve un elemento HTML que permita mostrar del  documento los datos: name, lenguaje, generes e image. 
-    
-4.(3pts) Crear el archivo main.js que se encargue de: 
-  a. Al momento de cargar la página, utilizar el método fetch para traer 6 series de la api: https://www.tvmaze.com/api#shows. 
-    Ejemplos: https://api.tvmaze.com/shows/1 
-    https://api.tvmaze.com/shows/2 
-    https://api.tvmaze.com/shows/3 
-    etc. 
-  b. Utilizar los datos que traen los fetch para instanciar objetos de la clase Serie. 
-  c. Utilizar los objetos de la clase Serie para llamar al método createHtmlElement() e insertar en el DOM dichos elementos como hijos del elemento con id=series. 
-  
-5.(3pts) En el archivo main.js crear los métodos: 
-  a. paginaSiguiente() que permite traer las próximas 6 series de la api. Este eliminará del documento las series ya insertadas e insertará las nuevas. 
-  b. paginaAnterior() que permite traer las 6 anteriores series de la api (si es que hay anteriores). Este eliminará del documento las series ya insertadas e insertará las nuevas. 
-  c. Asignar los métodos creados a los botones con ids “anterior” y “siguiente”. 
-  
-6.(2pts) Modificar el retorno del método createHtmlElement() para que: 
-  a. Al clickear la imagen, se abre en otra pestaña el link contenido en el atributo url de la clase Serie. 
-  b. Agregar un botón debajo de la información de la serie que posea el texto “guardar” y llame al método guardarSerie(). 
-  
-7.(1pts) Crear el método de clase guardarSerie(serie) de la clase Serie, el cuál guardará la serie seleccionada en un array del localstorage. 
+Este proyecto tiene como objetivo el consumo de datos desde una API externa, su procesamiento mediante clases en JavaScript, y su representación visual a través de HTML y CSS (sin Bootstrap). Además, se implementa almacenamiento local de datos utilizando LocalStorage.
 
-8.(1pts) Realizar la lógica necesaria para que en guardardos.html se muestren únicamente las series guardadas en el localstorage. 
+---
 
-9.(1pts) Realizar la lógica necesaria para que los botones de ordenamiento de guardados.html funcionen correctamente. 
+## 📁 Enunciado y Requisitos
 
-10.(1pts) Agregar estilos (CSS o bootstrap) a las tarjetas de series, botones y demás componentes de la página web. 
+### 📌 1. Base del proyecto
+
+Utilizar la plantilla de parcial proporcionada:  
+🔗 [Plantilla OnlineGDB](https://onlinegdb.com/5u2Tbhqth)
+
+---
+
+### 🎨 2. Estilos con CSS y Media Queries (3 pts)
+
+✅ **Sin Bootstrap**.  
+Se deben aplicar los siguientes estilos:
+
+- 🧱 El elemento `<main>` debe funcionar como una grilla de **2 filas y 2 columnas**:
+  - `header` → ocupa la **primera fila**.
+  - `nav` → ocupa la **primera columna** de la segunda fila.
+  - `#principal` → ocupa la **segunda columna** de la segunda fila.
+
+- 📱 El `div` con `id="series"` debe:
+  - Tener **4 columnas** por fila en pantallas grandes.
+  - Pasar a **2 columnas** cuando el ancho sea menor a `900px`.
+  - Pasar a **1 columna** cuando el ancho sea menor a `550px`.
+
+---
+
+### 📦 3. Clase `Serie` en `serie.js` (3 pts)
+
+Crear una clase `Serie` con:
+
+#### 🧱 Atributos:
+- `id: number`
+- `url: string`
+- `name: string`
+- `language: string`
+- `genres: string[]`
+- `image: string`
+
+#### 🛠️ Métodos:
+- `constructor()`: inicializa todos los atributos.
+- `toJsonString()` → instancia: devuelve un JSON `string` del objeto.
+- `createFromJsonString(json)` → estático: devuelve una instancia desde un `string`.
+- `createHtmlElement()` → instancia: devuelve un **elemento HTML** que muestra `name`, `language`, `genres` e `image`.
+
+---
+
+### 🧠 4. Lógica en `main.js` (3 pts)
+
+- Al cargar la página, usar `fetch` para obtener **6 series** desde:
+  - `https://api.tvmaze.com/shows/1`
+  - `https://api.tvmaze.com/shows/2`
+  - `...` hasta 6
+
+- Crear objetos `Serie` con los datos recibidos.
+- Insertar el contenido HTML generado por `createHtmlElement()` como hijos de `#series`.
+
+---
+
+### 🔄 5. Navegación entre páginas (3 pts)
+
+Crear en `main.js` los métodos:
+
+- `paginaSiguiente()`  
+  🔄 Elimina las series actuales del DOM y carga las **6 siguientes** desde la API.
+
+- `paginaAnterior()`  
+  🔁 Elimina las series actuales del DOM y carga las **6 anteriores**, si existen.
+
+✅ Asignar estos métodos a los botones con:
+- `id="siguiente"`
+- `id="anterior"`
+
+---
+
+### 🖱️ 6. Interacción adicional (2 pts)
+
+Modificar el método `createHtmlElement()` para que:
+
+- Al **clic en la imagen**, se abra el enlace (`url`) en una nueva pestaña.
+- Agregue un botón **"Guardar"** que llame al método `guardarSerie()`.
+
+---
+
+### 💾 7. Guardado de Series (1 pt)
+
+Implementar el método **estático** `guardarSerie(serie)` en la clase `Serie`:
+
+- Guarda la serie en un array del **localStorage** llamado `seriesGuardadas`.
+
+---
+
+### 📋 8. Mostrar series guardadas (1 pt)
+
+En `guardardos.html`:
+
+- Mostrar solamente las series que se encuentren guardadas en el `localStorage`.
+
+---
+
+### 🔢 9. Ordenamiento en guardardos.html (1 pt)
+
+Agregar botones para ordenar las series guardadas (por nombre, género, etc.).  
+Implementar su lógica correctamente.
+
+---
+
+### 💅 10. Estilizado adicional (1 pt)
+
+Agregar **estilos visuales** para:
+
+- Las tarjetas de series.
+- Botones.
+- Otros componentes de la web.
+
+🎨 Puede usarse CSS puro o Bootstrap para este punto.
+
+---
